@@ -173,6 +173,30 @@
     font-size: 13.5px; color: var(--muted); display:flex; align-items:center; gap:9px; font-weight:500;
   }
   .hero-meta .tag b{ color: var(--ink); font-weight:600; }
+  .cv-download{
+    display:inline-flex; align-items:center; gap:9px; margin-top: 22px; padding: 12px 24px; border-radius: 40px;
+    background: var(--ink); color: var(--bg); font-size: 14.5px; font-weight:600; letter-spacing: -0.01em;
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, background .25s ease;
+  }
+  .cv-download:hover{ transform: translateY(-3px); box-shadow: 0 18px 34px -18px rgba(20,20,30,.4); background: var(--accent); }
+  .cv-arw{ font-size:13px; transition: transform .25s ease; }
+  .cv-download:hover .cv-arw{ transform: translateY(2px); }
+
+  /* ---------- Experience ---------- */
+  .exp-list{ display:flex; flex-direction:column; }
+  .exp-item{
+    display:grid; grid-template-columns: 1fr; gap: 14px; padding-block: 32px; border-top:1px solid var(--line);
+  }
+  @media(min-width: 860px){ .exp-item{ grid-template-columns: 200px 1fr; gap: 40px; } }
+  .exp-list .exp-item:last-child{ border-bottom:1px solid var(--line); }
+  .exp-when{ font-size:13.5px; color: var(--muted); font-weight:600; letter-spacing:.02em; }
+  .exp-role{ font-family:"Instrument Serif",serif; font-size: 26px; letter-spacing:-0.01em; line-height:1.2; }
+  .exp-company{ color: var(--accent); font-weight:500; margin-top:4px; }
+  .exp-context{ color: var(--muted); font-weight:400; }
+  .exp-bullets{ margin-top: 16px; display:flex; flex-direction:column; gap: 10px; list-style: none; padding-left: 0; }
+  .exp-bullets li{ position:relative; padding-left: 20px; color: var(--ink-soft); font-size: 15px; line-height:1.6; text-align: justify; }
+  .exp-bullets li::before{ content:""; position:absolute; left:0; top:9px; width:6px; height:6px; border-radius:50%; background: var(--accent); }
+
   .hero-cues{ position:absolute; bottom: 34px; left: var(--gutter); right: var(--gutter); z-index:2; display:flex; justify-content: space-between; align-items:flex-end; }
   .scrollcue{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color: var(--muted); display:flex; align-items:center; gap:10px; }
   .scrollcue .bar{ width:1px; height: 40px; background: linear-gradient(var(--ink), transparent); position: relative; overflow:hidden; }
@@ -505,7 +529,7 @@
   .connect-btn .ic{ width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; background: color-mix(in oklch, var(--glow, var(--accent)) 12%, var(--bg-2)); color: var(--glow, var(--accent)); position:relative; z-index:1; transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
   .connect-btn:hover .ic{ transform: scale(1.12) rotate(-6deg); }
   .connect-btn .ic svg{ width:22px; height:22px; }
-  .connect-btn .ic img{ width:26px; height:26px; object-fit:contain; }
+  .connect-btn .ic img{ width:32px; height:32px; object-fit:contain; }
   .connect-btn .lbl{ font-weight:600; font-size:15.5px; position:relative; z-index:1; }
   .connect-btn .sub{ font-size:12.5px; color: var(--muted); position:relative; z-index:1; }
   .connect-btn .go{ position:absolute; top:18px; right:18px; font-size:14px; color: var(--muted); opacity:0; transform: translate(-4px,4px); transition: opacity .3s ease, transform .3s ease; }
@@ -581,6 +605,7 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
       <a href="#education">Education</a>
       <a href="#work">Work</a>
       <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme"></button>
@@ -603,6 +628,7 @@
           <span class="tag"><b>SQL · Python · BI</b></span>
           <span class="tag"><b>Manchester<span style="color: oklch(0.58 0.02 265); font-weight: 500;">, United Kingdom</span></b></span>
         </div>
+        <a class="cv-download" href="resume/Namit-Singh-CV.pdf" download>Download CV <span class="cv-arw">↓</span></a>
       </div>
     </div>
     <div class="hero-cues">
@@ -696,6 +722,64 @@
             <button type="button" class="chip chip-toggle">+5 more</button>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section-pad" id="experience" data-screen-label="Experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Experience</div>
+        <h2 class="serif">Where the <span class="ital">numbers met the work.</span></h2>
+      </div>
+      <div class="exp-list">
+
+        <div class="exp-item reveal">
+          <div class="exp-when">Sep 2025 – Present</div>
+          <div class="exp-body">
+            <div class="exp-role">People &amp; Culture Data Admin</div>
+            <div class="exp-company">Primark</div>
+            <ul class="exp-bullets">
+              <li>Managed and analysed data for 550+ staff, producing accurate weekly and monthly reports that supported audits and leadership decision-making.</li>
+              <li>Cut recurring people-reporting time by 35% by replacing manual, spreadsheet-heavy processes with standardised, repeatable reporting, freeing analyst hours for higher-value investigation work.</li>
+              <li>Maintained 96% data compliance across 550+ employee records by embedding routine audit and validation checks into the team's workflow, catching errors at source rather than downstream.</li>
+              <li>Delivered 90% of project milestones on time supporting the business-wide rollout of myP&amp;C, Primark's people-system platform.</li>
+              <li>Designed and delivered hands-on myP&amp;C training for line managers, improving data quality at the point of entry, where most people-data errors originate.</li>
+              <li>Communicated complex people data to non-technical audiences through clear reporting packs, collaborating with managers across teams to translate business needs into reporting output.</li>
+              <li>Advised HR stakeholders on headcount, absence, and turnover trends, translating raw people data into clear, decision-ready answers.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-when">Sep 2024 – Aug 2025</div>
+          <div class="exp-body">
+            <div class="exp-role">PMO / Data Analyst</div>
+            <div class="exp-company">Pratapvasini <span class="exp-context">— Digital transformation programme</span></div>
+            <ul class="exp-bullets">
+              <li>Analysed complex, multi-workstream data sets to surface trends and anomalies, translating findings into recommendations that guided strategic decisions across the digital transformation programme.</li>
+              <li>Built and maintained dashboards and reports in Power BI, Tableau and Excel, replacing manual reporting processes and giving leadership faster access to accurate, actionable insight.</li>
+              <li>Maintained data accuracy across reporting processes by running routine validation checks, publishing performance and compliance reports used for leadership oversight.</li>
+              <li>Supported initiatives to improve data capture accuracy at the point of entry, raising data standards and reporting programme outcomes to stakeholders.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-when">Jun 2022 – Aug 2023</div>
+          <div class="exp-body">
+            <div class="exp-role">Project Data Analyst Intern</div>
+            <div class="exp-company">MyCaptain</div>
+            <ul class="exp-bullets">
+              <li>Facilitated stakeholder workshops, effectively bridging business and technical development teams to scope requirements and ensure aligned deliverables.</li>
+              <li>Oversaw timelines, sprint tracking, and backlog management for multiple Agile projects using industry tools including JIRA and Trello.</li>
+              <li>Built and maintained program KPI dashboards to enable executives to make data-driven decisions on project direction and scope.</li>
+              <li>Prepared concise project updates, risk logs, and progress reports, simplifying complex technical information for senior leadership and project teams.</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1146,9 +1230,15 @@
           </a>
           <a class="connect-btn" style="--glow:#e0651f" href="https://public.tableau.com/app/profile/namit.singh4211/vizzes" target="_blank" rel="noopener">
             <span class="go">↗</span>
-            <span class="ic"><img src="tableau-icon.png" alt=""></span>
+            <span class="ic"><img src="tableau-icon-cropped.png" alt=""></span>
             <span class="lbl">Tableau</span>
             <span class="sub">Public profile</span>
+          </a>
+          <a class="connect-btn" style="--glow:#b8901f" href="resume/Namit-Singh-CV.pdf" download>
+            <span class="go">↓</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v4h4"/><path d="M8.5 16v-3"/><path d="M12 16v-5"/><path d="M15.5 16v-2"/></svg></span>
+            <span class="lbl">Download CV</span>
+            <span class="sub">PDF resume</span>
           </a>
         </div>
 
